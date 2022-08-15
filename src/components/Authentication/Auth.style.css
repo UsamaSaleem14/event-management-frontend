@@ -1,0 +1,84 @@
+@import '../../App.css';
+
+.login-form,
+.signup-form {
+  width: 300px;
+}
+
+.login-form-button {
+  width: 100%;
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  border: none;
+  padding: 10px 0px;
+  border-radius: var(--border-radius);
+  margin: 20px auto auto auto;
+  cursor: pointer;
+}
+
+.signup-form-button {
+  width: 100%;
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  border: none;
+  padding: 10px 0px;
+  border-radius: var(--border-radius);
+  margin: auto;
+  cursor: pointer;
+}
+
+.lItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.loginForm,
+.signupForm {
+  background-color: white;
+  padding: 20px;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+}
+
+.loginImage {
+  margin-bottom: 10px;
+}
+
+.loginForm h2,
+.signupForm h2 {
+  padding: 0px;
+  margin: 0px 0px 10px 0px;
+}
+
+.login-form input[type='text'],
+.login-form input[type='password'],
+.signup-form input[type='text'],
+.signup-form input[type='password'] {
+  border: none;
+  padding: 8px 6px;
+  margin-left: 10px;
+  width: 100%;
+  outline: none;
+}
+
+.inputbox {
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 0px 4px;
+  display: flex;
+  align-items: center;
+}
+
+.ant-form-item {
+  margin: 20px auto;
+}
+
+.view-link {
+  color: var(--secondary-color);
+  cursor: pointer;
+  font-weight: 600;
+}

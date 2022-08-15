@@ -1,9 +1,10 @@
 import './App.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Auth from './components/Auth'
+import Auth from './components/Authentication/Auth'
 import Events from './components/Events'
 import Bookings from './components/Bookings'
 import Navbar from './components/Navigation/Navbar'
+import 'antd/dist/antd.min.css'
 
 function App() {
   return (

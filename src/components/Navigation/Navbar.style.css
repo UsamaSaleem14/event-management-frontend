@@ -1,20 +1,24 @@
+@import "../../App.css";
+
 .navbar-header {
-  position: fixed;
   left: 0;
   top: 0;
   width: 100%;
   height: 3.5rem;
-  background-color: #01d1d1;
+  background-color: var(--primary-color);
   display: flex;
   align-items: center;
 }
 .navbar-logo h1 {
-  margin: 0;
+  color: var(--text-color);
+  margin: 0px 0px 0px 30px;
   font-size: 1.5rem;
 }
+
 .navbar-main {
   margin-left: 1.5rem;
 }
+
 .navbar-main ul {
   display: flex;
   margin: 0;
@@ -26,10 +30,10 @@
 }
 .navbar-main a {
   text-decoration: none;
-  color: #000000;
+  color: var(--nav-link-color);
 }
 .navbar-main a:hover,
 .navbar-main a:active,
 .navbar-main a.active {
-  color: #f8e264;
+  color: var(--nav-link-active-color);
 }

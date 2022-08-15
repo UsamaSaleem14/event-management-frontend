@@ -1,5 +1,17 @@
+:root {
+  --primary-color: #0e0b16;
+  --secondary-color: #4717f6;
+  --tertiary-color: #a239ca;
+  --text-color: #e7dfdd;
+  --nav-link-color: #ffffff66;
+  --nav-link-active-color: #ffffff;
+  --border-radius: 8px;
+  --border-color: #d8d8da;
+}
+
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background-color: #f5f5f5;
 }
