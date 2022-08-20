@@ -1,13 +1,18 @@
+import { useState, useContext } from 'react'
 import { LockOutlined, UserOutlined } from '@ant-design/icons'
 import { Form, Input, Button, Checkbox, message } from 'antd'
-import { useState } from 'react'
 import './Auth.style.css'
 import axios from 'axios'
+import AuthContext from '../../context/auth-context'
+import { Navigate } from 'react-router-dom'
 
 const FormItem = Form.Item
 
 const Auth = () => {
   const [showSignUp, setShowSignUp] = useState(false)
+
+  const { token, login } = useContext(AuthContext)
+
   const handleSubmit = (values) => {
     if (!values.username || !values.password) {
       return
@@ -35,7 +40,9 @@ const Auth = () => {
         if (response.data.errors && response.data.errors.length > 0) {
           throw new Error(response.data.errors[0].message)
         }
-        console.log(response.data.data.login.token)
+        if (response.data.data.login.token) {
+          login(response.data.data.login.token, response.data.data.login.userId, response.data.data.login.tokenExpiration)
+        }
         message.success('The request was successful.')
       })
       .catch(function (error) {
@@ -91,6 +98,10 @@ const Auth = () => {
 
   const changeView = () => {
     setShowSignUp((prevState) => !prevState)
+  }
+
+  if (token) {
+    return <Navigate to="/events" />
   }
 
   return (
