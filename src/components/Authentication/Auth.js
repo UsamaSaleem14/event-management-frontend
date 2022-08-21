@@ -10,6 +10,8 @@ const FormItem = Form.Item
 
 const Auth = () => {
   const [showSignUp, setShowSignUp] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+  const [isLoginLoading, setIsLoginLoading] = useState(false)
 
   const { token, login } = useContext(AuthContext)
 
@@ -17,6 +19,7 @@ const Auth = () => {
     if (!values.username || !values.password) {
       return
     }
+    setIsLoginLoading(true)
 
     let body = {
       query: `
@@ -37,6 +40,7 @@ const Auth = () => {
         headers: headers,
       })
       .then(async function (response) {
+        setIsLoginLoading(false)
         if (response.data.errors && response.data.errors.length > 0) {
           throw new Error(response.data.errors[0].message)
         }
@@ -46,7 +50,7 @@ const Auth = () => {
         message.success('The request was successful.')
       })
       .catch(function (error) {
-        console.log(error)
+        setIsLoginLoading(false)
         if (error.response.data.errors && error.response.data.errors.length > 0) {
           message.error(error.response.data.errors[0].message.toString())
         } else {
@@ -60,6 +64,7 @@ const Auth = () => {
       message.error('Please fill in the required fields')
       return
     }
+    setIsLoading(true)
 
     let body = {
       query: `
@@ -81,6 +86,7 @@ const Auth = () => {
         headers: headers,
       })
       .then(async function (response) {
+        setIsLoading(false)
         if (response.data.errors && response.data.errors.length > 0) {
           throw new Error(response.data.errors[0].message)
         }
@@ -88,6 +94,7 @@ const Auth = () => {
         setShowSignUp(false)
       })
       .catch(function (error) {
+        setIsLoading(false)
         if (error) {
           message.error(error.toString())
         } else {
@@ -119,7 +126,7 @@ const Auth = () => {
               </FormItem>
               <FormItem>
                 <Checkbox>Remember me</Checkbox>
-                <Button type="primary" htmlType="submit" className="login-form-button">
+                <Button type="primary" htmlType="submit" className="login-form-button" loading={isLoginLoading}>
                   Log in
                 </Button>
               </FormItem>
@@ -144,7 +151,7 @@ const Auth = () => {
                 <Input className="inputbox" prefix={<LockOutlined />} type="password" placeholder="Password" />
               </FormItem>
               <FormItem>
-                <Button type="primary" htmlType="submit" className="signup-form-button">
+                <Button type="primary" htmlType="submit" className="signup-form-button" loading={isLoading}>
                   Sign Up
                 </Button>
               </FormItem>

@@ -4,7 +4,7 @@ import './Navbar.style.css'
 import AuthContext from '../../context/auth-context'
 
 const Navbar = () => {
-  const { token } = useContext(AuthContext)
+  const { token, logout } = useContext(AuthContext)
 
   return (
     <header className="navbar-header">
@@ -22,9 +22,14 @@ const Navbar = () => {
             <NavLink to="/events">Events</NavLink>
           </li>
           {token && (
-            <li>
-              <NavLink to="/bookings">Bookings</NavLink>
-            </li>
+            <>
+              <li>
+                <NavLink to="/bookings">Bookings</NavLink>
+              </li>
+              <li>
+                <button onClick={logout}>Logout</button>
+              </li>
+            </>
           )}
         </ul>
       </nav>

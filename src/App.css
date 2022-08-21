@@ -3,3 +3,11 @@
 .main-box {
   margin: 0rem 2.5rem;
 }
+
+.openModalBtn {
+  margin: 20px auto;
+}
+
+.ant-input-number {
+  width: 100%;
+}
